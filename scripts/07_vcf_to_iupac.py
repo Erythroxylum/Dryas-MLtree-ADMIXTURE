@@ -4,6 +4,8 @@
 import argparse
 import gzip
 
+import numpy as np
+
 
 IUPAC = {
     frozenset(("A", "G")): "R",
@@ -23,6 +25,14 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--vcf", required=True)
     parser.add_argument("--output", required=True)
+    parser.add_argument(
+        "--keep-constant-compatible",
+        action="store_true",
+        help=(
+            "Retain columns with only one unambiguous nucleotide after IUPAC "
+            "encoding. By default these are removed for compatibility with +ASC."
+        ),
+    )
     args = parser.parse_args()
 
     samples = None
@@ -65,13 +75,41 @@ def main():
 
     if not samples or n_sites == 0:
         raise RuntimeError("No samples or biallelic SNPs found")
+    retained_sites = n_sites
+    if not args.keep_constant_compatible:
+        alignment = np.frombuffer(b"".join(sequences), dtype="S1").reshape(
+            len(samples), n_sites
+        )
+        observed_states = np.zeros(n_sites, dtype=np.uint8)
+        for bit, base in enumerate((b"A", b"C", b"G", b"T")):
+            observed_states |= (alignment == base).any(axis=0).astype(np.uint8) << bit
+        state_counts = np.fromiter(
+            (int(value).bit_count() for value in observed_states),
+            dtype=np.uint8,
+            count=n_sites,
+        )
+        keep = state_counts >= 2
+        retained_sites = int(keep.sum())
+        if retained_sites == 0:
+            raise RuntimeError("No unambiguously variable sites remain")
+        sequences = [
+            np.frombuffer(sequence, dtype=np.uint8)[keep].tobytes()
+            for sequence in sequences
+        ]
+
     with open(args.output, "w") as output:
-        output.write(f"{len(samples)} {n_sites}\n")
+        output.write(f"{len(samples)} {retained_sites}\n")
         for sample, sequence in zip(samples, sequences):
-            output.write(f"{sample} {sequence.decode('ascii')}\n")
-    print(f"Wrote {len(samples)} samples and {n_sites:,} SNPs to {args.output}")
+            output.write(f"{sample} {bytes(sequence).decode('ascii')}\n")
+    print(
+        f"Wrote {len(samples)} samples and {retained_sites:,} SNPs to {args.output}"
+    )
+    if retained_sites != n_sites:
+        print(
+            f"Removed {n_sites - retained_sites:,} constant-compatible columns "
+            "after IUPAC encoding for +ASC"
+        )
 
 
 if __name__ == "__main__":
     main()
-
