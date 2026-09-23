@@ -25,6 +25,7 @@ fi
 
 "$iqtree_exe" \
   -s "$alignment" \
+  -st DNA \
   -m GTR+ASC \
   -B 1000 \
   --alrt 1000 \
