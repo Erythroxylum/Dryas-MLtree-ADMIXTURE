@@ -1,0 +1,7 @@
+data/*.vcf
+data/*.vcf.gz
+results/
+*.log
+.DS_Store
+__pycache__/
+*.pyc

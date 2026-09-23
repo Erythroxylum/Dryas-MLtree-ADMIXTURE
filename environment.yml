@@ -1,0 +1,19 @@
+name: dryas-ml-admixture
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - scipy
+  - bcftools
+  - htslib
+  - plink=1.90b6.21
+  - admixture
+  - iqtree
+  - r-base
+  - r-ape
+  - r-ggplot2
+  - r-scales
+
