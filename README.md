@@ -67,7 +67,7 @@ Rscript scripts/09_plot_tree.R \
   figures/dryas_cleaned_ml_tree.pdf
 ```
 
-IQ-TREE uses `GTR+ASC` for the SNP-only alignment with 1,000 ultrafast bootstrap and 1,000 SH-aLRT replicates.
+The IUPAC converter removes columns that contain only one unambiguous nucleotide state after heterozygotes are encoded; this leaves 80,122 unambiguously variable sites in the present dataset and avoids including constant-compatible patterns with the ascertainment-bias correction. IQ-TREE is explicitly given the DNA datatype and uses `GTR+ASC` with 1,000 ultrafast bootstrap and 1,000 SH-aLRT replicates.
 
 Create a composite figure with the rooted, ladderized tree; s170 and s47 membership tracks; CV error; and the best replicate for each ADMIXTURE K:
 
