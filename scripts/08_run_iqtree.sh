@@ -12,7 +12,18 @@ threads="${THREADS:-10}"
 seed="${IQTREE_SEED:-20260923}"
 mkdir -p "$(dirname "$output_prefix")"
 
-iqtree2 \
+if command -v iqtree3 >/dev/null 2>&1; then
+  iqtree_exe="iqtree3"
+elif command -v iqtree2 >/dev/null 2>&1; then
+  iqtree_exe="iqtree2"
+elif command -v iqtree >/dev/null 2>&1; then
+  iqtree_exe="iqtree"
+else
+  echo "IQ-TREE executable not found (tried iqtree3, iqtree2, and iqtree)" >&2
+  exit 1
+fi
+
+"$iqtree_exe" \
   -s "$alignment" \
   -m GTR+ASC \
   -B 1000 \
@@ -22,4 +33,3 @@ iqtree2 \
   --prefix "$output_prefix"
 
 echo "IQ-TREE result: ${output_prefix}.treefile"
-
