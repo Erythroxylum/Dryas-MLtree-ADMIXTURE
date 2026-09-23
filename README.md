@@ -69,6 +69,19 @@ Rscript scripts/09_plot_tree.R \
 
 IQ-TREE uses `GTR+ASC` for the SNP-only alignment with 1,000 ultrafast bootstrap and 1,000 SH-aLRT replicates.
 
+Create a composite figure with the rooted, ladderized tree; s170 and s47 membership tracks; CV error; and the best replicate for each ADMIXTURE K:
+
+```bash
+Rscript scripts/10_plot_tree_admixture.R \
+  results/ml_tree/dryas_cleaned.treefile \
+  results/admixture \
+  data/Dryas_sampledata.csv \
+  figures/dryas_tree_admixture_K12-19.pdf \
+  12 19
+```
+
+The script roots the tree with the four non-*Dryas* samples identified in the metadata, ladderizes it, selects the lowest-CV replicate at each K, matches component colors between consecutive K values, and reorders all ancestry bars to the plotted tree-tip order. It marks membership in `s170_BPP` and `s47-p9`; alternative metadata columns can be supplied with the `S170_COLUMN` and `S47_COLUMN` environment variables.
+
 ## Figures
 
 Final figures are written to `figures/` by the plotting scripts.
