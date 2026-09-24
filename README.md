@@ -34,21 +34,17 @@ python scripts/04_filter_vcf.py \
 
 The primary filter masks genotypes outside DP 15–150, masks heterozygotes with alternate-read balance outside 0.25–0.75, removes 637 batch-associated ipyrad loci, and recalculates MAC and call rate. It produced 95,479 SNPs in the 384-sample dataset and 24,160 SNPs in the 380-sample, ≥80%-called dataset.
 
-Run two independently seeded ADMIXTURE replicates for K = 2–19 and plot the lower-CV replicate at each K:
+Run ten independently seeded ADMIXTURE replicates for K = 10–25. The seed changes among replicates but is held constant across K within each replicate, and the log-likelihood convergence threshold is `1e-5`:
 
 ```bash
-bash scripts/05_run_admixture.sh \
+THREADS=8 K_MIN=10 K_MAX=25 REPLICATES=10 BASE_SEED=20260924 \
+caffeinate -i bash scripts/05_run_admixture.sh \
   results/cleaned_vcfs/s380_batchclean_ab25_locusFDR05_mac4_dp15-150_miss80.vcf.gz \
-  results/admixture
-
-Rscript scripts/06_plot_admixture.R \
-  results/admixture \
-  data/Dryas_sampledata.csv \
-  figures/admixture_cleaned.pdf \
-  12 19
+  results/admixture_10rep \
+  2>&1 | tee results/admixture_10rep_run.log
 ```
 
-The LD-pruning window is explicitly 50 kb (`--indep-pairwise 50kb 5 0.2`). ADMIXTURE component colors are arbitrary and should not be interpreted as homologous among K values without component matching.
+The LD-pruning window is explicitly 50 kb (`--indep-pairwise 50kb 5 0.2`). ADMIXTURE component colors are arbitrary and should not be interpreted as homologous among K values without component matching. Plotting commands are given below.
 
 Build and plot the maximum-likelihood tree:
 
@@ -69,18 +65,19 @@ Rscript scripts/09_plot_tree.R \
 
 The IUPAC converter removes columns that contain only one unambiguous nucleotide state after heterozygotes are encoded; this leaves 80,122 unambiguously variable sites in the present dataset and avoids including constant-compatible patterns with the ascertainment-bias correction. IQ-TREE is explicitly given the DNA datatype and uses `GTR+ASC` with 1,000 ultrafast bootstrap and 1,000 SH-aLRT replicates.
 
-Create a composite figure with the rooted, ladderized tree; s170 and s47 membership tracks; CV error; and the best replicate for each ADMIXTURE K:
+Create three separate figures: (1) the rooted, ladderized tree with s170 and s47 membership tracks, (2) all ADMIXTURE CV curves with their mean and ±1 SD, and (3) labeled ADMIXTURE panels. The ancestry plot defaults to replicates 1 and 2 to remain legible; set `PLOT_REPLICATES` to plot a different subset:
 
 ```bash
+PLOT_REPLICATES=1,2 \
 Rscript scripts/10_plot_tree_admixture.R \
-  results/ml_tree/dryas_cleaned.treefile \
-  results/admixture \
+  results/ml_tree/dryas_cleaned_asc.treefile \
+  results/admixture_10rep \
   data/Dryas_sampledata.csv \
-  figures/dryas_tree_admixture_K12-19.pdf \
-  12 19
+  figures/dryas_tree_admixture_K10-25.pdf \
+  10 25
 ```
 
-The script roots the tree with the four non-*Dryas* samples identified in the metadata, ladderizes it, selects the lowest-CV replicate at each K, matches component colors between consecutive K values, and reorders all ancestry bars to the plotted tree-tip order. It marks membership in `s170_BPP` and `s47-p9`; alternative metadata columns can be supplied with the `S170_COLUMN` and `S47_COLUMN` environment variables.
+The script removes the arbitrary Newick root, identifies the branch separating the four non-*Dryas* samples from the *Dryas* ingroup, places the root at the midpoint of that branch, and ladderizes the result. It matches component colors between consecutive plotted runs and orders ancestry panels by K and replicate. It writes `_tree.pdf`, `_cv.pdf`, `_cv_summary.tsv`, and `_admixture.pdf`, with sample names included in the ADMIXTURE figure. It marks membership in `s170_BPP` and `s47-p9`; alternative metadata columns can be supplied with the `S170_COLUMN` and `S47_COLUMN` environment variables.
 
 ## Figures
 

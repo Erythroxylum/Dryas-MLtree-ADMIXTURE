@@ -9,10 +9,10 @@ fi
 input_vcf="$(realpath "$1")"
 output_dir="$(mkdir -p "$2" && realpath "$2")"
 threads="${THREADS:-10}"
-k_min="${K_MIN:-2}"
-k_max="${K_MAX:-19}"
-replicates="${REPLICATES:-2}"
-base_seed="${BASE_SEED:-20260923}"
+k_min="${K_MIN:-10}"
+k_max="${K_MAX:-25}"
+replicates="${REPLICATES:-10}"
+base_seed="${BASE_SEED:-20260924}"
 work_dir="${output_dir}/prepared"
 prefix="${work_dir}/dryas_cleaned"
 mkdir -p "$work_dir"
@@ -49,11 +49,13 @@ for rep in $(seq 1 "$replicates"); do
   ln -sf "${prefix}_ld.bed" "${rep_dir}/dryas_ld.bed"
   ln -sf "${prefix}_ld.bim" "${rep_dir}/dryas_ld.bim"
   ln -sf "${prefix}_ld.fam" "${rep_dir}/dryas_ld.fam"
+  # Hold the seed constant across K within a replicate so that each replicate
+  # provides a comparable CV curve; change it only among independent runs.
+  seed=$((base_seed + rep))
   for k in $(seq "$k_min" "$k_max"); do
-    seed=$((base_seed + rep * 1000 + k))
     (
       cd "$rep_dir"
-      admixture --cv=10 -s "$seed" -j"$threads" dryas_ld.bed "$k" \
+      admixture --cv=10 -C 0.00001 -s "$seed" -j"$threads" dryas_ld.bed "$k" \
         > "K${k}.rep${rep}.log" 2>&1
       mv "dryas_ld.${k}.Q" "K${k}.rep${rep}.Q"
       mv "dryas_ld.${k}.P" "K${k}.rep${rep}.P"
@@ -72,4 +74,3 @@ done
 } > "${output_dir}/cross_validation.tsv"
 
 echo "ADMIXTURE results: ${output_dir}"
-
