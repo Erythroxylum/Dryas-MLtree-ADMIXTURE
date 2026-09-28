@@ -149,6 +149,21 @@ tree <- phytools::reroot(
 tree <- ladderize(tree, right = TRUE)
 tip_ids <- tree$tip.label
 
+# ladderize() changes the edge traversal used for plotting but does not simply
+# rewrite tree$tip.label into vertical plot order. Probe the exact coordinates
+# that ape will use and explicitly recover the bottom-to-top order of the tips.
+grDevices::pdf(NULL)
+plot(
+  tree, type = "phylogram", direction = "rightwards",
+  show.tip.label = TRUE, align.tip.label = TRUE, plot = FALSE
+)
+tree_order_probe <- get("last_plot.phylo", envir = .PlotPhyloEnv)
+grDevices::dev.off()
+plotted_tip_ids <- tip_ids[
+  order(tree_order_probe$yy[seq_len(Ntip(tree))])
+]
+writeLines(plotted_tip_ids, paste0(output_prefix, "_tree_tip_order.txt"))
+
 tree_metadata <- metadata[match(tip_ids, metadata$sampleID), , drop = FALSE]
 if (any(is.na(tree_metadata$sampleID))) {
   missing <- tip_ids[is.na(tree_metadata$sampleID)]
@@ -226,11 +241,12 @@ for (i in seq_len(nrow(plot_runs))) {
 
 # Establish component order at the first K from the tree-ordered samples, then
 # preserve comparable colors across adjacent K values.
-ingroup_tip_ids <- tip_ids[tip_ids %in% sample_order]
+ingroup_tip_ids <- plotted_tip_ids[plotted_tip_ids %in% sample_order]
 if (length(ingroup_tip_ids) != length(sample_order)) {
   missing <- setdiff(sample_order, tip_ids)
   stop("ADMIXTURE samples absent from tree: ", paste(missing, collapse = ", "))
 }
+writeLines(ingroup_tip_ids, paste0(output_prefix, "_admixture_sample_order.txt"))
 first_key <- plot_runs$key[1]
 first_q <- q_matrices[[first_key]]
 tree_ordered_q <- first_q[match(ingroup_tip_ids, rownames(first_q)), , drop = FALSE]
@@ -367,7 +383,7 @@ par(mar = c(0.6, 0.2, 1.6, 0.1), xaxs = "i", yaxs = "i")
 plot.new()
 plot.window(xlim = c(0, 1), ylim = c(0.5, n_samples + 0.5))
 text(0.99, sample_y, labels = ingroup_labels, adj = c(1, 0.5),
-     cex = 0.30, col = ingroup_colors)
+     cex = 0.40, col = ingroup_colors)
 title("Samples in ML-tree order", cex.main = 0.85, line = 0.25)
 
 for (i in seq_len(nrow(plot_runs))) {
@@ -397,6 +413,8 @@ for (i in seq_len(nrow(plot_runs))) {
 dev.off()
 
 message("Tree figure:      ", tree_output)
+message("Tree tip order:   ", paste0(output_prefix, "_tree_tip_order.txt"))
 message("CV figure:        ", cv_output)
 message("CV summary:       ", cv_summary_output)
 message("ADMIXTURE figure: ", admixture_output)
+message("ADMIXTURE order:  ", paste0(output_prefix, "_admixture_sample_order.txt"))
