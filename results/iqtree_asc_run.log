@@ -1,0 +1,548 @@
+IQ-TREE version 3.1.3 for MacOS Intel 64-bit built Jul 26 2026
+Developed by Bui Quang Minh, Thomas Wong, Nhan Ly-Trong, Huaiyan Ren
+Contributed by Lam-Tung Nguyen, Dominik Schrempf, Chris Bielow,
+Olga Chernomor, Michael Woodhams, Diep Thi Hoang, Heiko Schmidt
+
+Host:    Dawsons-MacBook-Pro-2359.local (SSE4.2, 18 GB RAM)
+Command: iqtree3 -s /Users/dawsonwhite/Desktop/dryas-ml-adm-local/Dryas-MLtree-ADMIXTURE/results/ml_tree/dryas_cleaned_asc.phy -st DNA -m GTR+ASC -B 1000 --alrt 1000 -T 8 -seed 20260923 --prefix results/ml_tree/dryas_cleaned_asc
+Seed:    20260923 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Wed Sep 23 16:51:13 2026
+Kernel:  SSE2 - 8 threads (11 CPU cores detected)
+
+Reading alignment file /Users/dawsonwhite/Desktop/dryas-ml-adm-local/Dryas-MLtree-ADMIXTURE/results/ml_tree/dryas_cleaned_asc.phy ... Phylip format detected
+Constructing alignment: done in 0.382806 secs using 387.3% CPU
+Alignment has 384 sequences with 80122 columns, 79455 distinct patterns
+67535 parsimony-informative, 12587 singleton sites, 0 constant sites
+                     Gap/Ambiguity  Composition  p-value
+Analyzing sequences: done in 0.0648761 secs using 742.2% CPU
+   1  Cermon_DW847          72.79%    passed     16.98%
+   2  Chafol_1611           76.81%    passed     78.43%
+   3  Pursta_DW848          73.48%    failed      1.60%
+   4  Purtri_DW846b         74.20%    passed     11.35%
+   5  ajan_11273b           47.15%    failed      4.98%
+   6  ajan_BABY109          50.24%    passed     23.66%
+   7  ajan_BABY11273        44.62%    passed     44.03%
+   8  ajan_BABY1282         50.11%    passed     27.47%
+   9  ajan_BABY220          51.17%    passed     61.60%
+  10  ajan_BABY301          52.96%    passed     82.88%
+  11  ajan_BABY3957         47.72%    failed      0.02%
+  12  ajan_BABY5187         56.06%    passed     12.37%
+  13  ajan_BABY581          53.08%    passed     22.92%
+  14  ajan_BABY5951         55.08%    passed     32.59%
+  15  ajan_BABY6544         54.07%    failed      3.42%
+  16  ajan_BABY6568         48.18%    passed     69.78%
+  17  ajan_BABY6724         47.93%    passed     94.03%
+  18  ajan_BABY76           46.95%    passed     53.06%
+  19  ajan_DW642            58.91%    failed      0.03%
+  20  ajan_DW643            56.40%    failed      0.07%
+  21  ajan_DW649            57.57%    passed      6.96%
+  22  ajan_DW654            61.73%    failed      0.40%
+  23  ajan_DW655            58.31%    failed      0.00%
+  24  ajan_DW657            54.22%    failed      0.24%
+  25  ajan_DW661            53.82%    failed      0.00%
+  26  ajan_DW662            60.66%    passed     27.94%
+  27  ajan_DW663            56.31%    failed      0.00%
+  28  ajan_ODP48916         47.69%    passed     15.26%
+  29  ajan_ODP49343         48.42%    passed     73.21%
+  30  ajan_ODP7385          47.43%    passed     52.71%
+  31  ajan_ODP7387          54.99%    passed     97.71%
+  32  ajan_ODP7388          55.38%    passed     21.37%
+  33  ajan_ODP7389          55.34%    passed     14.84%
+  34  ajan_ODP7390          45.17%    passed     80.47%
+  35  ajan_ODP7392          46.65%    passed     83.23%
+  36  ajan_ODP7394          43.27%    passed     77.24%
+  37  ajan_ODP7396          41.38%    passed      9.08%
+  38  ajan_ODP7406          52.13%    passed     33.28%
+  39  ajan_ODP7407          46.58%    passed     81.39%
+  40  ajan_ODP8449          56.38%    passed     48.77%
+  41  ajan_ODP8472          57.62%    passed      8.93%
+  42  ajan_ODP8501          53.96%    passed     47.15%
+  43  ajan_ODP8504          56.35%    passed     53.97%
+  44  ajan_esa36            59.08%    failed      0.00%
+  45  ajan_esa56            61.29%    passed     20.75%
+  46  ajan_wdb38            60.97%    passed     75.90%
+  47  ajancf_BRK02          53.16%    passed     18.34%
+  48  ajancf_BRK03          49.56%    passed     69.91%
+  49  ajancf_BRK04          46.16%    passed     85.27%
+  50  ajancf_DEN01          52.89%    passed      6.65%
+  51  ajancf_DEN06          46.01%    passed     46.69%
+  52  ajancf_DEN15          43.05%    passed     58.44%
+  53  ajancf_ODP7419        51.95%    passed     86.51%
+  54  ajancf_SLM01          50.89%    passed     96.53%
+  55  ajancf_SLM05          47.83%    passed     73.74%
+  56  ajancf_SLM10          45.61%    passed     52.61%
+  57  alas_BABY3048         61.24%    passed     99.52%
+  58  alas_BABY373          48.66%    passed     31.43%
+  59  alas_BABY3796         46.68%    passed     76.57%
+  60  alas_BABY422          66.12%    failed      0.00%
+  61  alas_BABY4577         48.30%    passed     76.81%
+  62  alas_BABY50           49.18%    passed     30.22%
+  63  alas_BABY6558         58.09%    failed      1.05%
+  64  alas_DW640            60.10%    passed     22.35%
+  65  alas_DW641            52.77%    failed      0.04%
+  66  alas_DW645            55.29%    failed      0.03%
+  67  alas_DW646            58.14%    failed      0.70%
+  68  alas_DW651            58.76%    failed      0.22%
+  69  alas_DW653            56.83%    failed      0.30%
+  70  alas_ODP43138         43.80%    passed     73.37%
+  71  alas_ODP7410          49.18%    passed     15.93%
+  72  alas_ODP7411          51.02%    passed     77.35%
+  73  alas_ODP7412          52.64%    passed     92.34%
+  74  alas_ODP7413          46.12%    passed      9.36%
+  75  alas_ODP7414          53.37%    passed     58.72%
+  76  alas_ODP7415          54.84%    passed     81.38%
+  77  alas_ODP7424          51.48%    passed     48.16%
+  78  alas_ODP7429          50.25%    passed     45.13%
+  79  alas_ODP7432          51.88%    passed     78.60%
+  80  alas_ODP8551          60.48%    passed     98.73%
+  81  cauc_ODP43219         45.97%    passed     61.52%
+  82  cauc_ODP43221         46.95%    passed     90.38%
+  83  cauc_ODP43223         43.24%    passed     79.64%
+  84  cauc_ODP43226         45.33%    passed     86.86%
+  85  cauc_ODP7438          46.97%    passed     77.67%
+  86  cauc_ODP7452          49.31%    passed     96.09%
+  87  cren_ODP53249         45.59%    passed     15.59%
+  88  cren_ODP53870         53.18%    passed     87.84%
+  89  cren_ODP53871         48.79%    passed     14.16%
+  90  cren_ODP53872         51.33%    passed     53.88%
+  91  cren_ODP53873         49.24%    passed      8.37%
+  92  cren_ODP7483          47.11%    passed     41.40%
+  93  drum_BABY3858         53.37%    passed     44.47%
+  94  drum_BABY4356         45.97%    passed     34.24%
+  95  drum_BABY55           49.79%    passed     69.92%
+  96  drum_BABY6104         50.59%    passed     71.61%
+  97  drum_BABY63           47.18%    passed     43.72%
+  98  drum_DW671            56.37%    failed      4.03%
+  99  drum_ODP7484          50.99%    passed     43.80%
+ 100  drum_ODP7486          44.49%    passed     55.74%
+ 101  drum_ODP7487          51.30%    failed      3.94%
+ 102  drum_ODP7492          51.84%    passed     27.33%
+ 103  drum_ODP7493          53.30%    passed     29.22%
+ 104  drum_ODP7499          51.71%    passed     28.20%
+ 105  gran_ODP59146         48.71%    failed      2.85%
+ 106  gran_ODP59147         44.76%    passed     17.84%
+ 107  gran_ODP59148         50.34%    failed      4.76%
+ 108  gran_ODP7506          52.21%    passed     77.50%
+ 109  hook_BTH01            45.75%    passed     48.19%
+ 110  hook_BTH03            53.79%    passed     76.43%
+ 111  hook_DW679            44.53%    passed     29.10%
+ 112  hook_DW683            47.55%    passed     70.30%
+ 113  hook_DW684            63.83%    failed      0.00%
+ 114  hook_DW685            47.56%    passed     31.33%
+ 115  hook_DW689            46.40%    passed     22.30%
+ 116  hook_DW690            49.69%    passed     84.62%
+ 117  hook_DW695            49.46%    passed     30.36%
+ 118  hook_DW697            51.75%    passed     77.55%
+ 119  hook_DW701            68.10%    failed      0.04%
+ 120  hook_DW703            50.14%    passed     97.91%
+ 121  hook_DW705            46.34%    passed     55.85%
+ 122  hook_DW708            49.07%    passed     74.55%
+ 123  hook_DW709            46.99%    passed     90.74%
+ 124  hook_DW712            47.58%    passed     28.72%
+ 125  hook_DW725            48.89%    passed     13.14%
+ 126  hook_DW732            45.14%    passed     69.82%
+ 127  hook_DW737            48.15%    passed     98.58%
+ 128  hook_GLA03            45.04%    passed      9.21%
+ 129  hook_GLA04            51.45%    passed     14.90%
+ 130  hook_GLA05            51.12%    passed     13.07%
+ 131  hook_MED01            50.53%    passed     37.79%
+ 132  hook_MED02            43.77%    passed     58.51%
+ 133  hook_MED04            38.61%    passed     77.03%
+ 134  hook_ODP8463          55.13%    passed     22.38%
+ 135  hook_ODP8464          54.09%    passed     98.14%
+ 136  hook_RM14942          46.45%    passed     19.16%
+ 137  hook_RM14945          45.35%    passed     94.06%
+ 138  hook_RM14946          46.11%    passed     36.87%
+ 139  hookcf_BABY426        51.73%    passed     48.85%
+ 140  hookcf_BABY8318       48.44%    passed     81.98%
+ 141  hybr_DW638            65.35%    failed      0.00%
+ 142  hybr_DW656            59.68%    failed      0.29%
+ 143  hybr_wdb41            55.18%    failed      0.84%
+ 144  inci_BABY10073        53.23%    passed     51.79%
+ 145  inci_BABY11354        45.07%    passed     87.01%
+ 146  inci_BABY5748         52.76%    failed      2.10%
+ 147  inci_BABY6523         48.66%    passed      8.03%
+ 148  inci_BABY8977         61.91%    passed     84.68%
+ 149  inci_ODP7509          51.41%    passed     13.64%
+ 150  inci_ODP7510          50.81%    passed     23.70%
+ 151  inci_ODP7514          55.09%    passed     94.06%
+ 152  inci_ODP7518          46.15%    passed      5.89%
+ 153  inci_ODP7519          47.14%    passed     14.01%
+ 154  inci_ODP7522          49.12%    passed     68.17%
+ 155  inci_ODP7523          50.47%    passed     57.16%
+ 156  int_DW669             57.27%    failed      3.81%
+ 157  int_DW673             60.53%    failed      0.00%
+ 158  int_DW675             67.37%    failed      0.00%
+ 159  intg_BABY1589         49.30%    passed     79.26%
+ 160  intg_BABY6522B        48.52%    passed     65.63%
+ 161  intg_ODP7461          54.05%    passed     97.71%
+ 162  intg_ODP7465          51.03%    passed     51.15%
+ 163  intg_ODP7528          52.73%    passed     30.07%
+ 164  intg_ODP7529          50.47%    passed     99.43%
+ 165  intg_ODP7530          50.98%    failed      0.61%
+ 166  intg_ODP7533          48.11%    passed     60.60%
+ 167  intg_ODP7536          51.08%    failed      0.93%
+ 168  intg_ODP7539          53.55%    passed     17.39%
+ 169  intg_ODP7542          47.75%    passed     26.11%
+ 170  intg_ODP7544          52.22%    passed     42.25%
+ 171  intg_ODP7546          50.25%    passed      6.47%
+ 172  intg_ODP7554          57.23%    passed     78.78%
+ 173  intg_ODP7555          51.54%    passed     59.10%
+ 174  intg_ODP7559          54.06%    passed     87.88%
+ 175  intg_ODP7568          50.09%    passed     40.93%
+ 176  intg_ODP7569          52.19%    passed     77.45%
+ 177  intg_ODP7571          52.35%    passed     20.58%
+ 178  intg_ODP7579          56.16%    passed     62.01%
+ 179  intg_ODP7599          50.64%    passed     22.19%
+ 180  intg_ODP7604          49.75%    passed     47.64%
+ 181  intg_ODP7620          43.20%    passed     85.00%
+ 182  intg_ODP7623          46.31%    passed     77.88%
+ 183  intg_ODP7629          51.12%    passed     82.17%
+ 184  intg_ODP7638          53.73%    passed      6.98%
+ 185  intg_ODP7640          56.13%    failed      4.54%
+ 186  intg_ODP7643          52.10%    passed     64.57%
+ 187  intg_ODP7644          53.60%    passed     25.28%
+ 188  intg_ODP7653          45.62%    passed     43.52%
+ 189  intg_ODP7656          50.38%    passed     94.93%
+ 190  intg_ODP7658          52.20%    passed     83.75%
+ 191  intg_ODP7659          48.60%    passed     97.08%
+ 192  intg_ODP8653          46.35%    passed     58.56%
+ 193  intgsyl_BABY10075     53.43%    passed     84.48%
+ 194  intgsyl_BABY5065      64.86%    passed     79.38%
+ 195  intgsyl_BABY8811      51.60%    passed     44.71%
+ 196  intgsylcan_BABY4355   82.16%    failed      0.12%
+ 197  intxala_BABY6522A     53.80%    passed     11.40%
+ 198  octo_ABI01            58.56%    failed      0.08%
+ 199  octo_ABI02            54.43%    passed     80.72%
+ 200  octo_ABI03            52.93%    passed     42.57%
+ 201  octo_AKU01            44.40%    passed     93.35%
+ 202  octo_AKU02            51.39%    passed     87.39%
+ 203  octo_AKU03            41.19%    passed     79.91%
+ 204  octo_ANE01            48.74%    passed     81.42%
+ 205  octo_ANE02            52.88%    passed     95.22%
+ 206  octo_BAK01            44.24%    passed     36.07%
+ 207  octo_BAK02            45.71%    passed     66.79%
+ 208  octo_BOB06            48.42%    passed     83.69%
+ 209  octo_BOB13            41.21%    passed     95.63%
+ 210  octo_CHVD23502        38.64%    passed     95.32%
+ 211  octo_CHVD23508        36.82%    passed     78.60%
+ 212  octo_EA8946-201       39.12%    passed     96.32%
+ 213  octo_EA8946-205       40.48%    passed     60.06%
+ 214  octo_EA8946-206       51.99%    failed      0.51%
+ 215  octo_EA9049-301       43.01%    passed     14.57%
+ 216  octo_EA9049-305       42.36%    passed     38.54%
+ 217  octo_END01            45.83%    passed     62.73%
+ 218  octo_END02            46.51%    passed     54.80%
+ 219  octo_END03            49.96%    passed     79.18%
+ 220  octo_FAE01            51.44%    passed     32.44%
+ 221  octo_FAE03            46.40%    passed     85.44%
+ 222  octo_FAE05            42.35%    passed     38.72%
+ 223  octo_GAV01            51.63%    passed     56.14%
+ 224  octo_GAV07            47.60%    passed     36.82%
+ 225  octo_HAR01            49.46%    passed     74.81%
+ 226  octo_HAR02            52.01%    passed     40.29%
+ 227  octo_HAR03            47.69%    passed     87.55%
+ 228  octo_IZO01            46.64%    passed     98.44%
+ 229  octo_IZO02            52.65%    passed     59.00%
+ 230  octo_IZO03            47.98%    passed     65.51%
+ 231  octo_JAT01            47.17%    passed     43.65%
+ 232  octo_JAT08            40.19%    passed     83.42%
+ 233  octo_JOT02            54.83%    passed     64.37%
+ 234  octo_JOT03            82.07%    failed      0.75%
+ 235  octo_JOT04            59.60%    passed     46.90%
+ 236  octo_KOL02            57.16%    passed     68.49%
+ 237  octo_KOL03            54.88%    passed     80.65%
+ 238  octo_KOL04            55.88%    failed      0.00%
+ 239  octo_KVA05            47.93%    passed     12.11%
+ 240  octo_KVA12            40.04%    passed     90.26%
+ 241  octo_KVA19            43.49%    passed     91.60%
+ 242  octo_MEN05            45.37%    passed     96.91%
+ 243  octo_MEN13            46.35%    passed     30.40%
+ 244  octo_ODP26005         50.98%    passed     38.96%
+ 245  octo_ODP43158         65.61%    failed      0.00%
+ 246  octo_ODP43161         41.20%    passed     62.79%
+ 247  octo_ODP43166         50.64%    passed     94.98%
+ 248  octo_ODP43168         46.21%    passed     60.26%
+ 249  octo_ODP43172         50.24%    passed     92.18%
+ 250  octo_ODP43175         44.40%    passed     48.43%
+ 251  octo_ODP43180         46.81%    passed     77.02%
+ 252  octo_ODP43187         50.01%    passed     24.83%
+ 253  octo_ODP43200         42.69%    passed     55.43%
+ 254  octo_ODP43206         42.50%    passed     96.62%
+ 255  octo_ODP43208         45.24%    failed      3.12%
+ 256  octo_ODP43228         55.20%    failed      0.59%
+ 257  octo_ODP43229         48.77%    passed     18.94%
+ 258  octo_ODP43232         69.13%    failed      0.00%
+ 259  octo_ODP43241         49.73%    passed     24.61%
+ 260  octo_ODP43245         46.52%    passed     92.52%
+ 261  octo_ODP43247         48.12%    passed     79.14%
+ 262  octo_ODP7796          41.10%    passed     53.26%
+ 263  octo_ODP7797          40.49%    passed     75.71%
+ 264  octo_ODP7815          55.05%    passed     26.61%
+ 265  octo_ODP7830          50.13%    passed     31.14%
+ 266  octo_ODP7879          47.06%    passed     54.99%
+ 267  octo_ODP7912          53.95%    failed      1.08%
+ 268  octo_ODP7937          47.55%    passed     30.98%
+ 269  octo_ODP7943          47.71%    passed     96.08%
+ 270  octo_ODP7950          49.04%    passed     82.63%
+ 271  octo_ODP7956          51.41%    passed     66.08%
+ 272  octo_ODP7960          48.08%    passed     52.15%
+ 273  octo_ODP7964          55.92%    failed      2.60%
+ 274  octo_ODP7972          44.24%    passed     91.97%
+ 275  octo_ODP7975          43.49%    passed     20.93%
+ 276  octo_ODP7982          48.05%    failed      2.28%
+ 277  octo_ODP7986          52.77%    passed      5.48%
+ 278  octo_ODP7992          48.95%    passed     48.31%
+ 279  octo_ODP7994          54.44%    passed     71.21%
+ 280  octo_ODP8001          43.14%    passed     56.96%
+ 281  octo_ODP8005          47.51%    passed     24.05%
+ 282  octo_ODP8018          44.13%    passed     37.20%
+ 283  octo_ODP8025          51.93%    passed     54.53%
+ 284  octo_ODP8033          44.82%    passed     52.10%
+ 285  octo_ODP8036          52.30%    failed      1.60%
+ 286  octo_ODP8039          48.86%    failed      3.25%
+ 287  octo_ODP8043          49.61%    passed     26.61%
+ 288  octo_ODP8072          71.20%    failed      0.00%
+ 289  octo_ODP8099          54.88%    passed     33.86%
+ 290  octo_ODP8108          48.08%    failed      2.92%
+ 291  octo_ODP8109          52.19%    passed     36.87%
+ 292  octo_ODP8112          46.59%    passed     86.31%
+ 293  octo_ODP8117          46.85%    passed     95.69%
+ 294  octo_ODP8143          55.03%    passed     60.51%
+ 295  octo_ODP8154          44.70%    passed     83.46%
+ 296  octo_ODP8160          41.45%    passed     28.65%
+ 297  octo_ODP8170          58.43%    passed     82.11%
+ 298  octo_ODP8172          48.88%    passed     34.60%
+ 299  octo_ODP8175          53.67%    passed     95.07%
+ 300  octo_ODP8183          51.12%    passed     65.17%
+ 301  octo_ODP8193          53.81%    passed     17.09%
+ 302  octo_ODP8196          56.45%    passed     14.50%
+ 303  octo_ODP8206          45.55%    passed     72.53%
+ 304  octo_ODP8229          44.38%    passed     89.07%
+ 305  octo_ODP8237          46.74%    passed     61.84%
+ 306  octo_ODP8244          47.38%    passed     64.77%
+ 307  octo_ODP8249          44.76%    passed     57.53%
+ 308  octo_ODP8261          43.22%    passed     60.79%
+ 309  octo_ODP8269          46.07%    passed     23.76%
+ 310  octo_ODP8286          45.69%    passed     83.33%
+ 311  octo_ODP8297          52.47%    passed     28.31%
+ 312  octo_ODP8312          59.70%    passed     19.78%
+ 313  octo_ODP8327          59.96%    passed     13.47%
+ 314  octo_ODP8335          52.46%    passed     94.24%
+ 315  octo_ODP8351          64.21%    passed     25.58%
+ 316  octo_ODP8360          44.14%    passed     14.33%
+ 317  octo_ODP8365          46.27%    passed     88.61%
+ 318  octo_ODP8372          47.05%    passed     82.91%
+ 319  octo_ODP8377          49.86%    passed     95.44%
+ 320  octo_ODP8388          47.22%    passed     59.84%
+ 321  octo_ODP8398          44.73%    passed     34.16%
+ 322  octo_ODP8411          45.26%    passed     45.66%
+ 323  octo_ODP8420          43.16%    passed     94.69%
+ 324  octo_ODP8425          41.03%    passed     49.76%
+ 325  octo_ODP8428          49.21%    passed     73.97%
+ 326  octo_ODP8478          49.31%    passed     22.86%
+ 327  octo_ODP8488          55.55%    passed     49.78%
+ 328  octo_OFE02            50.59%    passed     32.36%
+ 329  octo_OFE03            59.18%    failed      0.00%
+ 330  octo_PRO01            45.20%    passed     97.69%
+ 331  octo_PRO06            40.65%    passed     37.50%
+ 332  octo_Q56d04           41.51%    passed     55.48%
+ 333  octo_Q56d05           47.97%    passed     90.67%
+ 334  octo_Q56d11           45.91%    passed     52.89%
+ 335  octo_ROZ03            64.79%    passed      5.90%
+ 336  octo_ROZ10            47.38%    passed     95.63%
+ 337  octo_SMO11            39.82%    passed     39.24%
+ 338  octo_SMO12            44.17%    passed     34.88%
+ 339  octo_SUV10            47.02%    passed     91.06%
+ 340  octo_SUV18            46.53%    passed     99.38%
+ 341  octo_THV01            42.34%    passed     80.57%
+ 342  octo_THV03            40.44%    passed     95.51%
+ 343  octo_THV05            44.07%    passed     35.22%
+ 344  octocf_VAR01          57.51%    passed     68.81%
+ 345  octocf_VAR02          45.59%    passed     73.94%
+ 346  octocf_VAR03          48.80%    passed     70.59%
+ 347  oxyd_ODP43145         48.31%    passed     41.37%
+ 348  oxyd_ODP43147         42.47%    passed     61.29%
+ 349  oxyd_ODP43150         46.40%    passed     79.07%
+ 350  oxyd_ODP43154         40.51%    passed     16.18%
+ 351  oxyd_ODP8546          50.15%    passed     90.86%
+ 352  oxydcf_SAY02          50.35%    passed     62.85%
+ 353  oxydcf_SAY05          48.91%    passed     99.93%
+ 354  oxydcf_SAY09          47.09%    passed     67.75%
+ 355  punc_ODP53237         46.24%    passed     15.69%
+ 356  punc_ODP53362         45.80%    failed      1.15%
+ 357  punc_ODP53628         48.04%    passed      9.73%
+ 358  punc_ODP53651         49.07%    passed     63.88%
+ 359  punc_ODP53656         49.13%    passed     20.42%
+ 360  punc_ODP59151         42.04%    passed     50.30%
+ 361  punc_ODP63371         45.92%    passed     24.83%
+ 362  punc_ODP63378         47.03%    failed      4.89%
+ 363  punc_ODP63467         43.61%    failed      2.37%
+ 364  punc_ODP63471         47.02%    passed     36.60%
+ 365  punc_ODP63475         47.23%    failed      0.72%
+ 366  punc_ODP8549          59.81%    passed     47.77%
+ 367  punc_ODP8553          55.35%    passed     85.00%
+ 368  punc_ODP8555          56.41%    passed      8.23%
+ 369  punc_ODP8560          45.55%    passed     83.06%
+ 370  punccf_ODP8559        50.67%    passed     75.48%
+ 371  sp_ODP59155           49.24%    passed     28.63%
+ 372  sp_ODP59289           44.20%    passed     61.50%
+ 373  sp_ODP8577            51.33%    passed     83.52%
+ 374  sp_ODP8583            58.28%    passed     94.94%
+ 375  sp_ODP8593            46.23%    passed     67.09%
+ 376  sp_ODP8598            39.45%    passed     77.23%
+ 377  sp_ODP8605            47.27%    failed      0.00%
+ 378  sp_ODP8609            44.38%    passed     67.22%
+ 379  sp_ODP8620            50.00%    passed     88.24%
+ 380  sp_ODP8646            47.77%    passed     86.11%
+ 381  sp_ODP8648            44.73%    failed      2.87%
+ 382  sp_POB02              48.99%    passed     67.78%
+ 383  sp_POB04              48.08%    passed     71.59%
+ 384  sp_POB10              49.51%    passed     16.85%
+WARNING: 178 sequences contain more than 50% gaps/ambiguity
+****  TOTAL                 50.42%  58 sequences failed composition chi2 test (p-value<5%; df=3)
+Checking for duplicate sequences: done in 0.079222 secs using 742% CPU
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 2.925 seconds
+Generating 1000 samples for ultrafast bootstrap (seed: 20260923)...
+
+NOTE: 1292 MB RAM (1 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -2196148.252
+2. Current log-likelihood: -2089948.815
+3. Current log-likelihood: -2089586.661
+4. Current log-likelihood: -2089586.528
+Optimal log-likelihood: -2089586.492
+Rate parameters:  A-C: 1.02249  A-G: 2.82600  A-T: 1.39727  C-G: 0.79902  C-T: 2.91700  G-T: 1.00000
+Base frequencies:  A: 0.242  C: 0.258  G: 0.258  T: 0.241
+Parameters optimization took 4 rounds (13.689 sec)
+Wrote distance file to... 
+Computing ML distances based on estimated model parameters...
+Calculating distance matrix: done in 2.73708 secs using 765.8% CPU
+Computing ML distances took 2.819900 sec (of wall-clock time) 21.530495 sec (of CPU time)
+Setting up auxiliary I and S matrices: done in 0.000534058 secs using 720.9% CPU
+Constructing RapidNJ tree: done in 0.0310099 secs using 790.4% CPU
+Computing RapidNJ tree took 0.031764 sec (of wall-clock time) 0.250355 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -2105349.248
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 356.264 second
+Computing log-likelihood of 98 initial trees ... 105.549 seconds
+Current best score: -2089586.492
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -2089100.360
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 2: -2085948.929
+Iteration 10 / LogL: -2086443.512 / Time: 0h:10m:51s
+Iteration 20 / LogL: -2086498.811 / Time: 0h:13m:32s
+Finish initializing candidate tree set (20)
+Current best tree score: -2085948.929 / CPU time: 784.530
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -2086079.874 / Time: 0h:15m:38s (0h:38m:42s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 36: -2085900.299
+Iteration 40 / LogL: -2085942.365 / Time: 0h:17m:57s (0h:44m:4s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 43: -2085862.833
+Iteration 50 / LogL: -2086220.378 / Time: 0h:23m:5s (0h:43m:42s left)
+Log-likelihood cutoff on original alignment: -2086577.827
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 60: -2085854.642
+Iteration 60 / LogL: -2085854.642 / Time: 2h:20m:50s (3h:58m:37s left)
+Iteration 70 / LogL: -2086171.256 / Time: 3h:21m:38s (4h:22m:55s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 75: -2085850.161
+Iteration 80 / LogL: -2086241.501 / Time: 3h:53m:57s (4h:41m:15s left)
+Iteration 90 / LogL: -2085908.686 / Time: 3h:56m:2s (3h:45m:22s left)
+Iteration 100 / LogL: -2085959.789 / Time: 3h:58m:14s (3h:0m:26s left)
+Log-likelihood cutoff on original alignment: -2086573.624
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.990
+NOTE: UFBoot does not converge, continue at least 100 more iterations
+Iteration 110 / LogL: -2085911.992 / Time: 4h:0m:24s (3h:18m:27s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 113: -2085847.636
+Iteration 120 / LogL: -2085868.474 / Time: 4h:2m:35s (3h:9m:32s left)
+Iteration 130 / LogL: -2085989.345 / Time: 4h:4m:46s (2h:37m:27s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 140: -2085831.997
+Iteration 140 / LogL: -2085831.997 / Time: 4h:7m:2s (2h:57m:41s left)
+Iteration 150 / LogL: -2086012.738 / Time: 4h:9m:14s (2h:30m:31s left)
+Log-likelihood cutoff on original alignment: -2086573.624
+Iteration 160 / LogL: -2085949.051 / Time: 4h:11m:25s (2h:6m:28s left)
+Iteration 170 / LogL: -2087042.877 / Time: 4h:13m:34s (1h:45m:0s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 172: -2085762.520
+Iteration 180 / LogL: -2086038.312 / Time: 4h:15m:52s (2h:11m:28s left)
+Iteration 190 / LogL: -2086003.625 / Time: 4h:18m:0s (1h:51m:54s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 196: -2085751.990
+Iteration 200 / LogL: -2085843.037 / Time: 4h:20m:10s (2h:5m:29s left)
+Log-likelihood cutoff on original alignment: -2086573.624
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.994
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 201: -2085744.334
+Iteration 210 / LogL: -2086199.195 / Time: 4h:22m:28s (1h:54m:15s left)
+Iteration 220 / LogL: -2085813.489 / Time: 4h:24m:41s (1h:37m:52s left)
+Iteration 230 / LogL: -2085987.128 / Time: 4h:26m:54s (1h:22m:44s left)
+Iteration 240 / LogL: -2085794.568 / Time: 4h:29m:10s (1h:8m:41s left)
+Iteration 250 / LogL: -2086050.193 / Time: 4h:31m:17s (0h:55m:33s left)
+Log-likelihood cutoff on original alignment: -2086573.624
+Iteration 260 / LogL: -2085801.116 / Time: 4h:33m:31s (0h:43m:17s left)
+Iteration 270 / LogL: -2085870.240 / Time: 4h:35m:42s (0h:31m:45s left)
+Iteration 280 / LogL: -2085958.079 / Time: 4h:37m:58s (0h:20m:55s left)
+Iteration 290 / LogL: -2085885.743 / Time: 4h:40m:18s (0h:10m:40s left)
+Iteration 300 / LogL: -2085868.115 / Time: 4h:42m:25s (0h:0m:56s left)
+Log-likelihood cutoff on original alignment: -2086572.138
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.995
+TREE SEARCH COMPLETED AFTER 302 ITERATIONS / Time: 4h:42m:50s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -2085744.334
+Optimal log-likelihood: -2085744.334
+Rate parameters:  A-C: 1.02020  A-G: 2.82028  A-T: 1.39344  C-G: 0.79662  C-T: 2.91313  G-T: 1.00000
+Base frequencies:  A: 0.242  C: 0.258  G: 0.258  T: 0.241
+Parameters optimization took 1 rounds (2.038 sec)
+BEST SCORE FOUND : -2085744.334
+
+Testing tree branches by SH-like aLRT with 1000 replicates...
+Alternative NNI shows better log-likelihood -2085743.860 > -2085744.334
+50.442 sec.
+Creating bootstrap support values...
+Split supports printed to NEXUS file results/ml_tree/dryas_cleaned_asc.splits.nex
+Total tree length: 6.844
+
+Total number of iterations: 302
+CPU time used for tree search: 31381.252 sec (8h:43m:1s)
+Wall-clock time used for tree search: 16943.293 sec (4h:42m:23s)
+Total CPU time used: 31978.069 sec (8h:52m:58s)
+Total wall-clock time used: 17024.086 sec (4h:43m:44s)
+
+Computing bootstrap consensus tree...
+Reading input file results/ml_tree/dryas_cleaned_asc.splits.nex...
+384 taxa and 1588 splits.
+Consensus tree written to results/ml_tree/dryas_cleaned_asc.contree
+Reading input trees file results/ml_tree/dryas_cleaned_asc.contree
+Log-likelihood of consensus tree: -2085724.346
+
+Analysis results written to: 
+  IQ-TREE report:                results/ml_tree/dryas_cleaned_asc.iqtree
+  Maximum-likelihood tree:       results/ml_tree/dryas_cleaned_asc.treefile
+  Likelihood distances:          results/ml_tree/dryas_cleaned_asc.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          results/ml_tree/dryas_cleaned_asc.splits.nex
+  Consensus tree:                results/ml_tree/dryas_cleaned_asc.contree
+  Screen log file:               results/ml_tree/dryas_cleaned_asc.log
+
+Date and Time: Wed Sep 23 21:35:06 2026
+IQ-TREE result: results/ml_tree/dryas_cleaned_asc.treefile

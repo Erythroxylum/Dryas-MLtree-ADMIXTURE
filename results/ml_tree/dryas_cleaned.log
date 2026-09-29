@@ -1,0 +1,13 @@
+IQ-TREE version 3.1.3 for MacOS Intel 64-bit built Jul 26 2026
+Developed by Bui Quang Minh, Thomas Wong, Nhan Ly-Trong, Huaiyan Ren
+Contributed by Lam-Tung Nguyen, Dominik Schrempf, Chris Bielow,
+Olga Chernomor, Michael Woodhams, Diep Thi Hoang, Heiko Schmidt
+
+Host:    Dawsons-MacBook-Pro-2359.local (SSE4.2, 18 GB RAM)
+Command: iqtree3 -s /Users/dawsonwhite/Desktop/dryas-ml-adm-local/Dryas-MLtree-ADMIXTURE/results/ml_tree/dryas_cleaned.phy -m GTR+ASC -B 1000 --alrt 1000 -T 8 -seed 20260923 --prefix results/ml_tree/dryas_cleaned
+Seed:    20260923 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Wed Sep 23 15:36:35 2026
+Kernel:  SSE2 - 8 threads (11 CPU cores detected)
+
+Reading alignment file /Users/dawsonwhite/Desktop/dryas-ml-adm-local/Dryas-MLtree-ADMIXTURE/results/ml_tree/dryas_cleaned.phy ... Phylip format detected
+ERROR: Unknown sequence type

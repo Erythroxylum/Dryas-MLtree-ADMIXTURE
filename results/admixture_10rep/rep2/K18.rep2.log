@@ -1,0 +1,68 @@
+****                   ADMIXTURE Version 1.3.0                  ****
+****                    Copyright 2008-2015                     ****
+****           David Alexander, Suyash Shringarpure,            ****
+****                John  Novembre, Ken Lange                   ****
+****                                                            ****
+****                 Please cite our paper!                     ****
+****   Information at www.genetics.ucla.edu/software/admixture  ****
+
+Cross-validation will be performed.  Folds=10.
+Parallel execution requested.  Will use 8 threads.
+Random seed: 20260926
+Point estimation method: Block relaxation algorithm
+Convergence acceleration algorithm: QuasiNewton, 3 secant conditions
+Point estimation will terminate when objective function delta < 1e-05
+Estimation of standard errors disabled; will compute point estimates only.
+Size of G: 380x17027
+Performing five EM steps to prime main algorithm
+1 (EM) 	Elapsed: 10.272	Loglikelihood: -2.09636e+06	(delta): 6.24192e+06
+2 (EM) 	Elapsed: 10.247	Loglikelihood: -1.90785e+06	(delta): 188503
+3 (EM) 	Elapsed: 10.206	Loglikelihood: -1.88364e+06	(delta): 24218.9
+4 (EM) 	Elapsed: 10.219	Loglikelihood: -1.86967e+06	(delta): 13964.3
+5 (EM) 	Elapsed: 10.328	Loglikelihood: -1.85771e+06	(delta): 11966.2
+Initial loglikelihood: -1.85771e+06
+Starting main algorithm
+1 (QN/Block) 	Elapsed: 3.345	Loglikelihood: -1.32949e+06	(delta): 528218
+2 (QN/Block) 	Elapsed: 3.484	Loglikelihood: -1.13091e+06	(delta): 198574
+3 (QN/Block) 	Elapsed: 5.64	Loglikelihood: -1.06358e+06	(delta): 67334.2
+4 (QN/Block) 	Elapsed: 5.33	Loglikelihood: -1.02621e+06	(delta): 37366.1
+5 (QN/Block) 	Elapsed: 5.181	Loglikelihood: -1.00721e+06	(delta): 19003.5
+6 (QN/Block) 	Elapsed: 4.611	Loglikelihood: -1.00052e+06	(delta): 6690.34
+7 (QN/Block) 	Elapsed: 6.264	Loglikelihood: -998815	(delta): 1704.89
+8 (QN/Block) 	Elapsed: 4.888	Loglikelihood: -998252	(delta): 562.705
+9 (QN/Block) 	Elapsed: 5.125	Loglikelihood: -998092	(delta): 159.598
+10 (QN/Block) 	Elapsed: 4.558	Loglikelihood: -998061	(delta): 31.068
+11 (QN/Block) 	Elapsed: 5.105	Loglikelihood: -998058	(delta): 3.67978
+12 (QN/Block) 	Elapsed: 5.121	Loglikelihood: -998057	(delta): 0.284191
+13 (QN/Block) 	Elapsed: 4.564	Loglikelihood: -998057	(delta): 0.0530969
+14 (QN/Block) 	Elapsed: 4.574	Loglikelihood: -998057	(delta): 0.0206113
+15 (QN/Block) 	Elapsed: 4.589	Loglikelihood: -998057	(delta): 0.846266
+16 (QN/Block) 	Elapsed: 6.732	Loglikelihood: -998056	(delta): 0.0160557
+17 (QN/Block) 	Elapsed: 4.583	Loglikelihood: -998056	(delta): 0.00106282
+18 (QN/Block) 	Elapsed: 4.586	Loglikelihood: -998056	(delta): 5.24751e-05
+19 (QN/Block) 	Elapsed: 4.573	Loglikelihood: -998056	(delta): 4.50609e-06
+Summary: 
+Converged in 19 iterations (158.898 sec)
+Loglikelihood: -998056.494978
+Fst divergences between estimated populations: 
+	Pop0	Pop1	Pop2	Pop3	Pop4	Pop5	Pop6	Pop7	Pop8	Pop9	Pop10	Pop11	Pop12	Pop13	Pop14	Pop15	Pop16	
+Pop0	
+Pop1	0.330	
+Pop2	0.365	0.362	
+Pop3	0.439	0.432	0.386	
+Pop4	0.445	0.446	0.220	0.456	
+Pop5	0.486	0.491	0.277	0.496	0.320	
+Pop6	0.766	0.763	0.675	0.735	0.744	0.788	
+Pop7	0.352	0.359	0.217	0.331	0.315	0.357	0.682	
+Pop8	0.381	0.405	0.307	0.409	0.398	0.438	0.742	0.242	
+Pop9	0.397	0.396	0.142	0.414	0.254	0.312	0.703	0.273	0.355	
+Pop10	0.514	0.518	0.321	0.524	0.405	0.398	0.816	0.390	0.474	0.337	
+Pop11	0.418	0.417	0.175	0.432	0.153	0.262	0.724	0.291	0.375	0.207	0.363	
+Pop12	0.344	0.277	0.394	0.460	0.474	0.516	0.792	0.380	0.424	0.429	0.545	0.445	
+Pop13	0.324	0.346	0.252	0.352	0.345	0.383	0.691	0.179	0.151	0.302	0.418	0.318	0.363	
+Pop14	0.172	0.278	0.357	0.431	0.438	0.478	0.758	0.352	0.394	0.389	0.506	0.411	0.307	0.341	
+Pop15	0.196	0.411	0.434	0.512	0.520	0.566	0.844	0.427	0.468	0.468	0.597	0.492	0.432	0.408	0.265	
+Pop16	0.488	0.489	0.295	0.499	0.387	0.404	0.796	0.364	0.445	0.299	0.277	0.349	0.518	0.391	0.477	0.570	
+Pop17	0.402	0.402	0.149	0.420	0.254	0.306	0.715	0.263	0.353	0.134	0.322	0.208	0.434	0.296	0.392	0.475	0.278	
+CV error (K=18): 0.14058
+Writing output files.

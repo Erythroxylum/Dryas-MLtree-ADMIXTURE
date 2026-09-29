@@ -1,0 +1,41 @@
+PLINK v1.90b6.21 64-bit (19 Oct 2020)
+Options in effect:
+  --allow-extra-chr
+  --double-id
+  --make-bed
+  --out /Users/dawsonwhite/Desktop/dryas-ml-adm-local/Dryas-MLtree-ADMIXTURE/results/admixture_10rep/prepared/dryas_cleaned
+  --vcf /Users/dawsonwhite/Desktop/dryas-ml-adm-local/Dryas-MLtree-ADMIXTURE/results/admixture_10rep/prepared/dryas_cleaned.vcf.gz
+
+Hostname: Dawsons-MacBook-Pro-2359.local
+Working directory: /Users/dawsonwhite/Desktop/dryas-ml-adm-local/Dryas-MLtree-ADMIXTURE
+Start time: Thu Sep 24 09:29:34 2026
+
+Random number seed: 1790260174
+18432 MB RAM detected; reserving 9216 MB for main workspace.
+--vcf:
+/Users/dawsonwhite/Desktop/dryas-ml-adm-local/Dryas-MLtree-ADMIXTURE/results/admixture_10rep/prepared/dryas_cleaned-temporary.bed
++
+/Users/dawsonwhite/Desktop/dryas-ml-adm-local/Dryas-MLtree-ADMIXTURE/results/admixture_10rep/prepared/dryas_cleaned-temporary.bim
++
+/Users/dawsonwhite/Desktop/dryas-ml-adm-local/Dryas-MLtree-ADMIXTURE/results/admixture_10rep/prepared/dryas_cleaned-temporary.fam
+written.
+24160 variants loaded from .bim file.
+380 people (0 males, 0 females, 380 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to
+/Users/dawsonwhite/Desktop/dryas-ml-adm-local/Dryas-MLtree-ADMIXTURE/results/admixture_10rep/prepared/dryas_cleaned.nosex
+.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 380 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.904931.
+24160 variants and 380 people pass filters and QC.
+Note: No phenotypes present.
+--make-bed to
+/Users/dawsonwhite/Desktop/dryas-ml-adm-local/Dryas-MLtree-ADMIXTURE/results/admixture_10rep/prepared/dryas_cleaned.bed
++
+/Users/dawsonwhite/Desktop/dryas-ml-adm-local/Dryas-MLtree-ADMIXTURE/results/admixture_10rep/prepared/dryas_cleaned.bim
++
+/Users/dawsonwhite/Desktop/dryas-ml-adm-local/Dryas-MLtree-ADMIXTURE/results/admixture_10rep/prepared/dryas_cleaned.fam
+... done.
+
+End time: Thu Sep 24 09:29:34 2026
