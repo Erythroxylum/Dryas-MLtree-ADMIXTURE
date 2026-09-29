@@ -4,10 +4,10 @@
 # No tree or CV-error panel is produced.
 
 args <- commandArgs(trailingOnly = TRUE)
-if (length(args) != 4) {
+if (length(args) < 4 || length(args) > 5) {
   stop(paste(
-    "Usage: 12_plot_selected_runs.R CROSS_VALIDATION.tsv METADATA.csv",
-    "ORDER_FILE OUTPUT.pdf"
+    "Usage: 12_plot_selected_runs_cex.R CROSS_VALIDATION.tsv METADATA.csv",
+    "ORDER_FILE OUTPUT.pdf [SAMPLE_LABEL_CEX]"
   ))
 }
 
@@ -16,7 +16,14 @@ metadata_file <- args[2]
 order_file <- args[3]
 output_file <- args[4]
 tip_label_column <- Sys.getenv("TIP_LABEL_COLUMN", "phyloID")
-sample_label_cex <- as.numeric(Sys.getenv("SAMPLE_LABEL_CEX", "0.40"))
+sample_label_cex <- if (length(args) == 5) {
+  as.numeric(args[5])
+} else {
+  as.numeric(Sys.getenv("SAMPLE_LABEL_CEX", "0.40"))
+}
+if (!is.finite(sample_label_cex) || sample_label_cex <= 0) {
+  stop("SAMPLE_LABEL_CEX must be a positive number")
+}
 admixture_dir <- dirname(normalizePath(cv_file))
 
 selected <- data.frame(

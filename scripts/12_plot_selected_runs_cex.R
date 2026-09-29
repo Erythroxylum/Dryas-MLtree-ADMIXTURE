@@ -1,7 +1,18 @@
 #!/usr/bin/env Rscript
 
 # Plot the seven selected ADMIXTURE solutions in ascending K order.
-# No tree or CV-error panel is produced.
+# A separate CV-error figure highlights these seven selected solutions.
+
+# Usage:
+#TIP_LABEL_COLUMN=phyloID \
+#SAMPLE_LABEL_CEX=0.45 \
+#PANEL_HEADER_CEX=0.72 \
+#Rscript scripts/12_plot_selected_runs_cex.R \
+#  results/admixture_10rep/cross_validation.tsv \
+#  data/Dryas_sampledata.csv \
+#  figures/09_dryas_tree_admixture_sample_order.txt \
+#  figures/12_dryas_selected_K16-22.pdf \
+#  0.45
 
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) < 4 || length(args) > 5) {
@@ -193,14 +204,25 @@ sample_y <- seq_len(n_samples)
 
 pdf(
   output_file,
-  width = max(17, 7.2 + 1.15 * n_panels),
-  height = 32,
+  width = 10,
+  height = 24,
   useDingbats = FALSE
 )
 layout(
   matrix(seq_len(n_panels + 1), nrow = 1),
-  widths = c(7.2, rep(1.15, n_panels))
+  widths = c(1.0, rep(0.5, n_panels))
 )
+
+#pdf(
+#  output_file,
+#  width = max(17, 7.2 + 1.15 * n_panels),
+#  height = 32,
+#  useDingbats = FALSE
+#)
+#layout(
+#  matrix(seq_len(n_panels + 1), nrow = 1),
+#  widths = c(7.2, rep(1.15, n_panels))
+#)
 
 par(mar = c(0.6, 0.2, 2.3, 0.1), xaxs = "i", yaxs = "i")
 plot.new()
@@ -209,7 +231,8 @@ text(
   0.99, sample_y, labels = plot_labels, adj = c(1, 0.5),
   cex = sample_label_cex, col = label_colors
 )
-title("Samples in active-tree order", cex.main = 0.85, line = 0.25)
+#title("Samples in active-tree order", cex.main = 0.85, line = 0.25)
+ title(NA)
 
 for (i in seq_len(nrow(selected))) {
   k <- selected$K[i]
@@ -246,3 +269,28 @@ for (i in seq_len(nrow(selected))) {
 
 dev.off()
 message("ADMIXTURE bar chart written to: ", output_file)
+
+cv_output <- paste0(sub("\\.pdf$", "", output_file, ignore.case = TRUE), "_cv.pdf")
+replicate_ids <- sort(unique(cv$replicate))
+replicate_colors <- setNames(viridisLite::turbo(length(replicate_ids)), replicate_ids)
+pdf(cv_output, width = 9.5, height = 5.8, useDingbats = FALSE)
+par(mar = c(4.2, 4.5, 2.8, 7), xpd = NA)
+plot(NA, xlim = range(cv$K), ylim = range(cv$CV_error), xlab = "K",
+     ylab = "10-fold CV error", xaxt = "n",
+     main = "ADMIXTURE cross-validation: selected solutions")
+axis(1, at = sort(unique(cv$K)))
+for (r in replicate_ids) {
+  z <- cv[cv$replicate == r, , drop = FALSE]; z <- z[order(z$K), ]
+  lines(z$K, z$CV_error, type = "b", pch = 16, cex = 0.48,
+        col = replicate_colors[as.character(r)])
+}
+points(selected$K, selected$CV_error, pch = 21, cex = 1.25, lwd = 1.3,
+       bg = NA, col = "black")
+legend("topright", inset = c(-0.27, 0),
+       legend = c(paste0("R", replicate_ids), "Selected"),
+       col = c(replicate_colors, "black"),
+       pch = c(rep(16, length(replicate_ids)), 21),
+       lty = c(rep(1, length(replicate_ids)), NA),
+       bty = "n", ncol = 2, cex = 0.75, title = "Replicate")
+dev.off()
+message("CV figure written to: ", cv_output)

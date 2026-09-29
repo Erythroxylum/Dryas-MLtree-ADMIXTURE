@@ -189,7 +189,7 @@ par(mar = c(1.5, 1, 2.2, 1), xpd = NA)
 plot(
   display_tree, type = "phylogram", direction = "rightwards",
   show.tip.label = TRUE, tip.color = tip_colors,
-  cex = 0.25, align.tip.label = TRUE,
+  cex = 1, align.tip.label = TRUE,
   label.offset = max_depth * 0.006,
   x.lim = c(0, max_depth * 1.45), no.margin = FALSE
 )
@@ -205,7 +205,7 @@ if (!is.null(tree$node.label)) {
     nodelabels(
       text = round(support[show_support]),
       node = Ntip(tree) + show_support,
-      frame = "none", cex = 0.35, adj = c(1.05, -0.15)
+      frame = "none", cex = 1, adj = c(1.05, -0.15)
     )
   }
 }

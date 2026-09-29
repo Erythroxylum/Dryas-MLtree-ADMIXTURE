@@ -1,20 +1,7 @@
 #!/usr/bin/env Rscript
 
 # Plot only the N lowest-CV ADMIXTURE runs within a requested K range.
-# A separate CV-error figure highlights the selected runs.
-
-
-# Usage
-#TIP_LABEL_COLUMN=phyloID \
-#SAMPLE_LABEL_CEX=0.45 \
-#PANEL_HEADER_CEX=0.72 \
-#Rscript scripts/11_plot_lowest_cv_runs.R \
-#  results/admixture_10rep/cross_validation.tsv \
-#  data/Dryas_sampledata.csv \
-#  figures/09_dryas_tree_admixture_sample_order.txt \
-#  figures/11_dryas_K16-22 \
-#  16 22 \
-#  7
+# No tree or CV-error figure is produced.
 
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) < 6 || length(args) > 7) {
@@ -32,8 +19,6 @@ k_min <- as.integer(args[5])
 k_max <- as.integer(args[6])
 n_best <- if (length(args) == 7) as.integer(args[7]) else k_max - k_min + 1L
 tip_label_column <- Sys.getenv("TIP_LABEL_COLUMN", "phyloID")
-sample_label_cex <- as.numeric(Sys.getenv("SAMPLE_LABEL_CEX", "0.40"))
-panel_header_cex <- as.numeric(Sys.getenv("PANEL_HEADER_CEX", "0.72"))
 admixture_dir <- dirname(normalizePath(cv_file))
 
 if (!is.finite(k_min) || !is.finite(k_max) || k_min > k_max) {
@@ -194,7 +179,7 @@ par(mar = c(0.6, 0.2, 2.3, 0.1), xaxs = "i", yaxs = "i")
 plot.new()
 plot.window(xlim = c(0, 1), ylim = c(0.5, n_samples + 0.5))
 text(0.99, sample_y, labels = plot_labels, adj = c(1, 0.5),
-     cex = sample_label_cex, col = label_colors)
+     cex = 0.40, col = label_colors)
 title("Samples in active-tree order", cex.main = 0.85, line = 0.25)
 
 for (i in seq_len(nrow(selected))) {
@@ -222,36 +207,10 @@ for (i in seq_len(nrow(selected))) {
   }
   title(
     sprintf("K=%d\nR%d\nCV=%.5f", k, replicate, selected$CV_error[i]),
-    cex.main = panel_header_cex, line = 0.05
+    cex.main = 0.72, line = 0.05
   )
   box(col = "black", lwd = 0.8)
 }
 dev.off()
 
 message("ADMIXTURE bar chart written to: ", output_file)
-
-# CV curves for all runs in the requested K range, with selected runs circled.
-cv_output <- paste0(output_prefix, "_lowest", n_best, "CVruns_cv.pdf")
-replicate_ids <- sort(unique(cv$replicate))
-replicate_colors <- setNames(viridisLite::turbo(length(replicate_ids)), replicate_ids)
-pdf(cv_output, width = 9.5, height = 5.8, useDingbats = FALSE)
-par(mar = c(4.2, 4.5, 2.8, 7), xpd = NA)
-plot(NA, xlim = range(cv$K), ylim = range(cv$CV_error), xlab = "K",
-     ylab = "10-fold CV error", xaxt = "n",
-     main = paste0("ADMIXTURE CV: lowest ", n_best, " runs selected"))
-axis(1, at = sort(unique(cv$K)))
-for (r in replicate_ids) {
-  z <- cv[cv$replicate == r, , drop = FALSE]; z <- z[order(z$K), ]
-  lines(z$K, z$CV_error, type = "b", pch = 16, cex = 0.48,
-        col = replicate_colors[as.character(r)])
-}
-points(selected$K, selected$CV_error, pch = 21, cex = 1.25, lwd = 1.3,
-       bg = NA, col = "black")
-legend("topright", inset = c(-0.27, 0),
-       legend = c(paste0("R", replicate_ids), "Selected"),
-       col = c(replicate_colors, "black"),
-       pch = c(rep(16, length(replicate_ids)), 21),
-       lty = c(rep(1, length(replicate_ids)), NA),
-       bty = "n", ncol = 2, cex = 0.75, title = "Replicate")
-dev.off()
-message("CV figure written to: ", cv_output)
